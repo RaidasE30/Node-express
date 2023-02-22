@@ -1,22 +1,19 @@
 import * as Yup from 'yup';
-import { HouseData } from './types';
+import { PartialHouseData } from '../houses-controller/types';
 
-const houseDataValidationSchema: Yup.ObjectSchema<HouseData> = Yup.object({
+const partialHouseDataValidationSchema: Yup.ObjectSchema<PartialHouseData> = Yup.object({
   title: Yup.string()
     .min(3, 'title mus be at least 3 characters')
-    .max(32, 'title can\'t be longer than 32 characters')
-    .required('title is required'),
+    .max(32, 'title can\'t be longer than 32 characters'),
 
   price: Yup.string()
-    .matches(/^[0-9]+€$/)
-    .required('price is required'),
+    .matches(/^[0-9]+€$/),
 
   rating: Yup.number()
     .min(1, 'rating must be at least 1')
-    .max(5, 'rating must be at least 5')
-    .required('rating is required'),
+    .max(5, 'rating must be at least 5'),
+
   images: Yup.array(Yup.string().required())
-    .required('images are required')
     .min(1, 'images must have at least one image'),
 
   location: Yup.object({
@@ -27,8 +24,8 @@ const houseDataValidationSchema: Yup.ObjectSchema<HouseData> = Yup.object({
     country: Yup.string()
       .min(3, 'country must be at least 3 characters')
       .max(32, 'country can\'t be longer than 32 characters')
-      .required(),
+      .required('country is required'),
   }),
 }).strict(true);
 
-export default houseDataValidationSchema;
+export default partialHouseDataValidationSchema;
