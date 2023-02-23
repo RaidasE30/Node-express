@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import config from './config';
 import housesRouter from './routers/houses-router';
+import { connectMySql } from './services/my-sql';
 
 const server = express();
 
@@ -11,6 +12,8 @@ server.use(express.static('public'));
 server.use(express.json());
 server.use('/api/houses', housesRouter);
 
-server.listen(config.server.port, () => {
-  console.log(`server is running on: http://${config.server.domain}:${config.server.port}`);
+connectMySql(() => {
+  server.listen(config.server.port, () => {
+    console.log(`server is running on: http://${config.server.domain}:${config.server.port}`);
+  });
 });
