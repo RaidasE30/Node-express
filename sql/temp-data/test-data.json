@@ -1,0 +1,196 @@
+{
+  "characters": [
+    {
+      "id": "1",
+      "lvl": 15,
+      "sex": "female",
+      "builds": {
+        "beginner": "food",
+        "end_game": "stealth"
+      },
+      "inventory": [
+        "https://imgur.com/aKuYJIO.png",
+        "https://imgur.com/Uz7Gw4X.png",
+        "https://imgur.com/dy5UolK.png"
+      ],
+      "faction": "Brotherhood of Steel",
+      "price": 10
+    },
+    {
+      "id": "2",
+      "lvl": 45,
+      "sex": "male",
+      "builds": {
+        "beginner": "vanguard",
+        "end_game": "tank"
+      },
+      "inventory": [
+        "https://imgur.com/bmEKbmI.png",
+        "https://imgur.com/AVT7PCg.png",
+        "https://imgur.com/PYvhJtw.png"
+      ],
+      "faction": "Enclave",
+      "price": 50
+    },
+    {
+      "id": "3",
+      "lvl": 100,
+      "sex": "female",
+      "builds": {
+        "beginner": "bloodied",
+        "end_game": "melee"
+      },
+      "inventory": [
+        "https://imgur.com/aLEposw.png",
+        "https://imgur.com/LiaBliM.png",
+        "https://imgur.com/IyhB7Fu.png"
+      ],
+      "faction": "Raiders",
+      "price": 75
+    },
+    {
+      "id": "4",
+      "lvl": 200,
+      "sex": "female",
+      "builds": {
+        "beginner": "berserker",
+        "end_game": "heavy gunner"
+      },
+      "inventory": [
+        "https://imgur.com/uMo8ORz.png",
+        "https://imgur.com/nwk2Wmr.png",
+        "https://imgur.com/L7kYZwH.png"
+      ],
+      "faction": "Responders",
+      "price": 89
+    },
+    {
+      "id": "5",
+      "lvl": 77,
+      "sex": "male",
+      "builds": {
+        "beginner": "junkie",
+        "end_game": "melee"
+      },
+      "inventory": [
+        "https://imgur.com/gZwcPzq.png",
+        "https://imgur.com/8xOuIux.png",
+        "https://imgur.com/LL8Fhdh.png"
+      ],
+      "faction": "Blood Eagles",
+      "price": 125
+    },
+    {
+      "id": "6",
+      "lvl": 365,
+      "sex": "male",
+      "builds": {
+        "beginner": "farmer",
+        "end_game": "vanguard"
+      },
+      "inventory": [
+        "https://imgur.com/kIMIHYm.png",
+        "https://imgur.com/SsLQ95x.png",
+        "https://imgur.com/uABmS7P.png"
+      ],
+      "faction": "Responders",
+      "price": 55
+    },
+    {
+      "id": "7",
+      "lvl": 53,
+      "sex": "female",
+      "builds": {
+        "beginner": "pvp",
+        "end_game": "stealth"
+      },
+      "inventory": [
+        "https://imgur.com/x9epSBq.png",
+        "https://imgur.com/Ey2RL5Q.png",
+        "https://imgur.com/CnsA0j3.png"
+      ],
+      "faction": "Slavers",
+      "price": 110
+    },
+    {
+      "id": "8",
+      "lvl": 20,
+      "sex": "female",
+      "builds": {
+        "beginner": "commando",
+        "end_game": "junkie"
+      },
+      "inventory": [
+        "https://imgur.com/CND7Izt.png",
+        "https://imgur.com/TlIsflG.png",
+        "https://imgur.com/7kE4Qtl.png"
+      ],
+      "faction": "Fanatics",
+      "price": 35
+    },
+    {
+      "id": "9",
+      "lvl": 72,
+      "sex": "female",
+      "builds": {
+        "beginner": "bloodied",
+        "end_game": "junkie"
+      },
+      "inventory": [
+        "https://imgur.com/LjL2KAs.png",
+        "https://imgur.com/c4Rl0Pv.png",
+        "https://imgur.com/G7eSUX0.png"
+      ],
+      "faction": "Brotherhood of Steel",
+      "price": 65
+    },
+    {
+      "id": "10",
+      "lvl": 25,
+      "sex": "male",
+      "builds": {
+        "beginner": "junkie",
+        "end_game": "melee"
+      },
+      "inventory": [
+        "https://imgur.com/VQv74hb.png",
+        "https://imgur.com/BQnCiHr.png",
+        "https://imgur.com/01tjRhd.png"
+      ],
+      "faction": "Raiders",
+      "price": 55
+    },
+    {
+      "id": "11",
+      "lvl": 525,
+      "sex": "female",
+      "builds": {
+        "beginner": "commando",
+        "end_game": "stealth"
+      },
+      "inventory": [
+        "https://imgur.com/M0SncsA.png",
+        "https://imgur.com/5mTuLn7.png",
+        "https://imgur.com/EDPjmnE.png"
+      ],
+      "faction": "Blood Eagles",
+      "price": 125
+    },
+    {
+      "id": "12",
+      "lvl": 35,
+      "sex": "female",
+      "builds": {
+        "beginner": "tank",
+        "end_game": "commando"
+      },
+      "inventory": [
+        "https://imgur.com/FOX7s7J.png",
+        "https://imgur.com/Tm6boRk.png",
+        "https://imgur.com/o5ml4Sw.png"
+      ],
+      "faction": "Brotherhood of Steel",
+      "price": 250
+    }
+  ]
+}
