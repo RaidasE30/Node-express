@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import config from './config';
-import housesRouter from './routers/houses-router';
+import charactersRouter from './routers/characters-router';
 import { connectMySql } from './services/my-sql';
 
 const server = express();
@@ -10,7 +10,7 @@ const server = express();
 server.use(morgan('tiny'));
 server.use(express.static('public'));
 server.use(express.json());
-server.use('/api/houses', housesRouter);
+server.use('/api/characters', charactersRouter);
 
 connectMySql(() => {
   server.listen(config.server.port, () => {
