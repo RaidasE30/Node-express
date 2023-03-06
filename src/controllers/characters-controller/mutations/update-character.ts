@@ -22,8 +22,8 @@ PartialCharacterData,
       req.body,
       { abortEarly: false },
     );
-    const updatedHouse = await CharacterService.updateCharacter(id, partialCharacterData);
-    res.status(200).json(updatedHouse);
+    const updatedCharacter = await CharacterService.updateCharacter(id, partialCharacterData);
+    res.status(200).json(updatedCharacter);
   } catch (err) {
     if (err instanceof ValidationError) {
       const manyErrors = err.errors.length > 1;

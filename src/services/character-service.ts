@@ -159,7 +159,7 @@ const updateCharacter = async (
       ON i.character_id = c.id
       LEFT JOIN  builds as b
       ON c.build_id = b.id
-      WHERE c.id = @characterId
+      WHERE c.id = :id
       GROUP BY c.id;
       `.trim();
 

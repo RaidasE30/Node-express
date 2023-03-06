@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import config from './config';
 import charactersRouter from './routers/characters-router';
 import { connectMySql } from './services/my-sql';
+import auth from './auth';
 
 const server = express();
 
@@ -11,6 +12,7 @@ server.use(morgan('tiny'));
 server.use(express.static('public'));
 server.use(express.json());
 server.use('/api/characters', charactersRouter);
+server.use('/api/auth/', auth);
 
 connectMySql(() => {
   server.listen(config.server.port, () => {
