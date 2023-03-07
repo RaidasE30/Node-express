@@ -1,6 +1,6 @@
 create table users (
   id int4 unsigned primary key auto_increment,
-  email varchar(256) not null,
+  email varchar(256) not null unique,
   first_name varchar(256) not null,
   last_name varchar(256) not null,
   `password` varchar(256) not null,

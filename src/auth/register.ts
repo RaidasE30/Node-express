@@ -1,25 +1,29 @@
 import { RequestHandler } from 'express';
 import { ValidationError } from 'yup';
 import bcrypt from 'bcrypt';
-
-import { CredentialsPartial, AuthSuccessResponse } from './types';
-import credentialsValidationSchema from '../controllers/validation-schemas/credentials-validation-schema';
+import { AuthSuccessResponse, RegistrationData } from './types';
+import registrationDataValidationSchema from '../controllers/validation-schemas/registration-data-validation-schema';
 import UserModel from './model';
-
+import config from '../config';
 import createAuthSuccessResponse from './helpers/create-auth-success-response';
 
-export const login: RequestHandler<
+export const register: RequestHandler<
 {},
 AuthSuccessResponse | ResponseError,
-CredentialsPartial,
+Partial<RegistrationData>,
 {}
-
 > = async (req, res) => {
   try {
-    const credentials = credentialsValidationSchema.validateSync(req.body, { abortEarly: false });
-    const user = await UserModel.getUser(credentials.email);
-    const validPassword = await bcrypt.compare(credentials.password, user.password);
-    if (!validPassword) throw new Error('Incorrect password');
+    const registrationData = registrationDataValidationSchema.validateSync(req.body, {
+      abortEarly: false,
+    });
+
+    const user = await UserModel.createUser({
+      email: registrationData.email,
+      password: await bcrypt.hash(registrationData.password, config.secret.bcryptRounds),
+      first_name: registrationData.first_name,
+      last_name: registrationData.last_name,
+    });
 
     res.status(200).json(createAuthSuccessResponse(user));
   } catch (err) {
