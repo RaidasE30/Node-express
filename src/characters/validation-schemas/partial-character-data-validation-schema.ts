@@ -1,20 +1,16 @@
 import * as Yup from 'yup';
-import { CharacterData } from '../characters-controller/types';
+import { PartialCharacterDetails } from '../types';
 
-const characterDataValidationSchema: Yup.ObjectSchema<CharacterData> = Yup.object({
+const partialCharacterDataValidationSchema: Yup.ObjectSchema<PartialCharacterDetails> = Yup.object({
   lvl: Yup.number()
     .min(1, 'level can\'t be lower than 1')
-    .max(1000, 'level can\'t be higher than 1000')
-    .required('level is required'),
+    .max(1000, 'level can\'t be higher than 1000'),
 
   sex: Yup.string()
-    .matches(/(male|female)/, 'Must contain either "male" or "female"')
-    .required('price is required'),
+    .matches(/(male|female)/, 'Must contain either "male" or "female"'),
 
   inventory: Yup.array(Yup.string().required())
-    .required('inventory images are required')
-    .min(1, 'inventory must have at least one image')
-    .required('inventory is required'),
+    .min(1, 'inventory must have at least one image'),
 
   builds: Yup.object({
     beginner: Yup.string()
@@ -29,13 +25,11 @@ const characterDataValidationSchema: Yup.ObjectSchema<CharacterData> = Yup.objec
 
   faction: Yup.string()
     .min(3, 'faction must be at 3 characters')
-    .max(32, 'faction can\'t be longer than 32 characters')
-    .required('rating is required'),
+    .max(32, 'faction can\'t be longer than 32 characters'),
 
   price: Yup.number()
     .min(1, 'price can\'t be lower than 1')
-    .max(1000, 'price can\'t be higher than 1000')
-    .required('level is required'),
+    .max(1000, 'price can\'t be higher than 1000'),
 }).strict(true);
 
-export default characterDataValidationSchema;
+export default partialCharacterDataValidationSchema;

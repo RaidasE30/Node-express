@@ -1,13 +1,13 @@
 import { RequestHandler } from 'express';
-import { CharacterModel, PartialCharacterData } from '../types';
-import partialCharacterDataValidationSchema from '../../validation-schemas/partial-character-data-validation-schema';
-import CharacterService from '../../../services/character-service';
-import ErrorService from '../../../services/error-service';
+import { CharacterViewModel, PartialCharacterDetails } from '../types';
+import partialCharacterDataValidationSchema from '../validation-schemas/partial-character-data-validation-schema';
+import ErrorService from '../../services/error-service';
+import CharactersModel from '../model';
 
 export const updateCharacter: RequestHandler<
 { id: string | undefined },
-CharacterModel | ResponseError,
-PartialCharacterData,
+CharacterViewModel | ResponseError,
+PartialCharacterDetails,
 {}
 > = async (req, res) => {
   const { id } = req.params;
@@ -22,7 +22,7 @@ PartialCharacterData,
       req.body,
       { abortEarly: false },
     );
-    const updatedCharacter = await CharacterService.updateCharacter(id, partialCharacterData);
+    const updatedCharacter = await CharactersModel.updateCharacter(id, partialCharacterData);
     res.status(200).json(updatedCharacter);
   } catch (err) {
     const [status, errorResponse] = ErrorService.handleError(err);

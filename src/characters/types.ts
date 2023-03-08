@@ -1,6 +1,6 @@
 import { RowDataPacket } from 'mysql2';
 
-export interface CharacterModel extends RowDataPacket {
+export interface CharacterViewModel extends RowDataPacket {
   id: number,
   lvl: number,
   sex: string,
@@ -13,6 +13,6 @@ export interface CharacterModel extends RowDataPacket {
   price: number
 }
 
-export type CharacterData = Omit<CharacterModel, 'id'>;
+export type CharacterDetails = Omit<CharacterViewModel, 'id'>;
 
-export type PartialCharacterData = Partial<CharacterData>;
+export type PartialCharacterDetails = Partial<CharacterDetails>;

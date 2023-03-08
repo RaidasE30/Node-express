@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { AuthSuccessResponse, RegistrationData } from './types';
-import registrationDataValidationSchema from '../controllers/validation-schemas/registration-data-validation-schema';
+import registrationDataValidationSchema from '../characters/validation-schemas/registration-data-validation-schema';
 import UserModel from './model';
 
 import { createAuthSuccessResponse } from './helpers/create-auth-success-response';

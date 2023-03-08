@@ -1,11 +1,11 @@
 import { RequestHandler } from 'express';
-import { CharacterModel } from '../types';
-import CharacterService from '../../../services/character-service';
-import ErrorService from '../../../services/error-service';
+import { CharacterViewModel } from '../types';
+import ErrorService from '../../services/error-service';
+import CharactersModel from '../model';
 
-export const getCharacter: RequestHandler<
+export const deleteCharacter: RequestHandler<
 { id: string | undefined },
-CharacterModel | ResponseError,
+CharacterViewModel | ResponseError,
 {},
 {}
 > = async (req, res) => {
@@ -16,7 +16,8 @@ CharacterModel | ResponseError,
     return;
   }
   try {
-    const character = await CharacterService.getCharacter(id);
+    const character = await CharactersModel.getCharacter(id);
+    await CharactersModel.deleteCharacter(id);
     res.status(200).json(character);
   } catch (err) {
     const [status, errorResponse] = ErrorService.handleError(err);

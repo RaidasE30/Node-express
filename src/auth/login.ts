@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 import bcrypt from 'bcrypt';
 
 import { CredentialsPartial, AuthSuccessResponse } from './types';
-import credentialsValidationSchema from '../controllers/validation-schemas/credentials-validation-schema';
+import credentialsValidationSchema from '../characters/validation-schemas/credentials-validation-schema';
 import UserModel from './model';
 
 import { createAuthSuccessResponse } from './helpers/create-auth-success-response';
