@@ -1,6 +1,7 @@
 import { RequestHandler } from 'express';
 import { CharacterModel } from '../types';
 import CharacterService from '../../../services/character-service';
+import ErrorService from '../../../services/error-service';
 
 export const deleteCharacter: RequestHandler<
 { id: string | undefined },
@@ -19,10 +20,7 @@ CharacterModel | ResponseError,
     await CharacterService.deleteCharacter(id);
     res.status(200).json(character);
   } catch (err) {
-    if (err instanceof Error) {
-      res.status(400).json({ error: err.message });
-    } else {
-      res.status(400).json({ error: 'Request error' });
-    }
+    const [status, errorResponse] = ErrorService.handleError(err);
+    res.status(status).json(errorResponse);
   }
 };

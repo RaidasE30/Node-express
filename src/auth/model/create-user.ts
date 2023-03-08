@@ -2,6 +2,7 @@ import mysql from 'mysql2/promise';
 import config from '../../config';
 import { UserEntityRow } from '../types';
 import SQL from './sql';
+import BcryptService from '../../services/bcrypt-service';
 
 type UserData = {
   email: string,
@@ -25,7 +26,8 @@ export const createUser = async ({
     WHERE users.id = LAST_INSERT_ID();
   `;
 
-  const preparedSqlData = [email, password, first_name, last_name];
+  const hashedPassword = BcryptService.hash(password);
+  const preparedSqlData = [email, hashedPassword, first_name, last_name];
   const [queryResultsArr] = await mySqlConnection.query(
     preparedSql,
     preparedSqlData,

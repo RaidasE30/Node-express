@@ -15,6 +15,7 @@ module.exports = {
     project: './tsconfig.json'
   },
   rules: {
-    'import/prefer-default-export': [0]
+    'import/prefer-default-export': [0],
+    'max-classes-per-file': [0]
   }
 }

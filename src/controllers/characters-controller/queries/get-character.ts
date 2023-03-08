@@ -1,6 +1,7 @@
 import { RequestHandler } from 'express';
 import { CharacterModel } from '../types';
 import CharacterService from '../../../services/character-service';
+import ErrorService from '../../../services/error-service';
 
 export const getCharacter: RequestHandler<
 { id: string | undefined },
@@ -17,8 +18,8 @@ CharacterModel | ResponseError,
   try {
     const character = await CharacterService.getCharacter(id);
     res.status(200).json(character);
-  } catch (error) {
-    const message = error instanceof Error ? error.message : 'request error';
-    res.status(404).json({ error: message });
+  } catch (err) {
+    const [status, errorResponse] = ErrorService.handleError(err);
+    res.status(status).json(errorResponse);
   }
 };
