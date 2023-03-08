@@ -1,9 +1,9 @@
 import express from 'express';
 import morgan from 'morgan';
 import config from './config';
-import charactersRouter from './routers/characters-router';
 import { connectMySql } from './services/my-sql';
 import auth from './auth';
+import charactersRouter from './characters';
 
 const server = express();
 

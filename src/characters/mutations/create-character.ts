@@ -1,13 +1,13 @@
 import { RequestHandler } from 'express';
 import characterDataValidationSchema from '../validation-schemas/character-data-validation-schema';
-import { CharacterViewModel } from '../types';
+import { CharacterViewModel, PartialCharacterDetails } from '../types';
 import ErrorService from '../../services/error-service';
 import CharactersModel from '../model';
 
 export const createCharacter: RequestHandler<
 {},
 CharacterViewModel | ResponseError,
-CharacterData,
+PartialCharacterDetails,
 {}
 > = async (req, res) => {
   try {
