@@ -1,8 +1,8 @@
 import mysql from 'mysql2/promise';
-import config from '../../config';
-import { RegistrationData, UserEntityRow } from '../types';
+import config from '../../../config';
+import { RegistrationData, UserEntityRow } from '../../../auth/types';
 import SQL from './sql';
-import BcryptService from '../../services/bcrypt-service';
+import BcryptService from '../../../services/bcrypt-service';
 
 export const createUser = async ({
   email,

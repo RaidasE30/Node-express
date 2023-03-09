@@ -5,7 +5,7 @@ export const createAuthSuccessResponse = ({
   password,
   ...user
 }: UserEntity):AuthSuccessResponse => {
-  const token = TokenService.createToken({ email: user.email, role: user.role });
+  const token = TokenService.createToken({ email: user.email });
 
   return {
     token,

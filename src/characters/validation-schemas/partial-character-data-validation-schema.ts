@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
-import { PartialCharacterDetails } from '../types';
+import { PartialCharacterBody } from '../types';
 
-const partialCharacterDataValidationSchema: Yup.ObjectSchema<PartialCharacterDetails> = Yup.object({
+const partialCharacterDataValidationSchema: Yup.ObjectSchema<PartialCharacterBody> = Yup.object({
   lvl: Yup.number()
     .min(1, 'level can\'t be lower than 1')
     .max(1000, 'level can\'t be higher than 1000'),

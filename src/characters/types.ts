@@ -10,9 +10,17 @@ export interface CharacterViewModel extends RowDataPacket {
   },
   inventory: string[],
   faction: string,
-  price: number
+  price: number,
+  owner: {
+    id: number,
+    first_name: string,
+    last_name: string,
+    email: string,
+  }
 }
 
-export type CharacterDetails = Omit<CharacterViewModel, 'id'>;
+export type CharacterDetails = Omit<CharacterViewModel, 'id' | 'owner'> & { user_id: number };
 
-export type PartialCharacterDetails = Partial<CharacterDetails>;
+export type CharacterBody = Omit<CharacterDetails, 'user_id'>;
+
+export type PartialCharacterBody = Partial<CharacterBody>;

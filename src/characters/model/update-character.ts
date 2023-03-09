@@ -1,11 +1,11 @@
 import mysql from 'mysql2/promise';
-import { CharacterViewModel, PartialCharacterDetails } from '../types';
+import { CharacterViewModel, PartialCharacterBody } from '../types';
 import config from '../../config';
 import { colonObjectQueryFormat } from '../../services/my-sql';
 
 export const updateCharacter = async (
   id: string,
-  characterData: PartialCharacterDetails,
+  characterData: PartialCharacterBody,
 ): Promise<CharacterViewModel> => {
   const mySqlConnection = await mysql.createConnection(config.db);
   mySqlConnection.config.queryFormat = colonObjectQueryFormat;

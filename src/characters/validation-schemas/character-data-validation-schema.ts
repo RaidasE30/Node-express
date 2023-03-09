@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
-import { CharacterDetails } from '../types';
+import { CharacterBody } from '../types';
 
-const characterDataValidationSchema: Yup.ObjectSchema<CharacterDetails> = Yup.object({
+const characterDataValidationSchema: Yup.ObjectSchema<CharacterBody> = Yup.object({
   lvl: Yup.number()
     .min(1, 'level can\'t be lower than 1')
     .max(1000, 'level can\'t be higher than 1000')

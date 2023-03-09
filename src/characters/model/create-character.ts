@@ -19,8 +19,8 @@ export const createCharacter = async (
       INSERT INTO builds (beginner, end_game) VALUES
       (?, ?);
 
-      INSERT INTO characters (lvl, sex, faction, price, build_id) VALUES
-      (?, ?, ?, ?, LAST_INSERT_ID());
+      INSERT INTO characters (lvl, sex, faction, price, user_id, build_id) VALUES
+      (?, ?, ?, ?, ?, LAST_INSERT_ID());
       SET @characterId = LAST_INSERT_ID();
 
       INSERT INTO inventory (src, character_id) VALUES
@@ -48,6 +48,7 @@ export const createCharacter = async (
     characterData.sex,
     characterData.faction,
     characterData.price,
+    characterData.user_id,
     ...characterData.inventory,
   ];
 
