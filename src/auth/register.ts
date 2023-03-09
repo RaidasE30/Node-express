@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { AuthSuccessResponse, RegistrationData } from './types';
+import { AuthSuccessResponse, RegistrationBody } from './types';
 import registrationDataValidationSchema from '../characters/validation-schemas/registration-data-validation-schema';
 import UserModel from './model';
 
@@ -9,7 +9,7 @@ import ErrorService from '../services/error-service';
 export const register: RequestHandler<
 {},
 AuthSuccessResponse | ResponseError,
-Partial<RegistrationData>,
+Partial<RegistrationBody>,
 {}
 > = async (req, res) => {
   try {

@@ -1,7 +1,7 @@
 import * as yup from 'yup';
-import { RegistrationData } from '../../auth/types';
+import { RegistrationBody } from '../../auth/types';
 
-const registrationDataValidationSchema: yup.ObjectSchema<RegistrationData> = yup.object({
+const registrationDataValidationSchema: yup.ObjectSchema<RegistrationBody> = yup.object({
   email: yup.string()
     .required('email is required')
     .email('incorrect email format'),
@@ -17,7 +17,7 @@ const registrationDataValidationSchema: yup.ObjectSchema<RegistrationData> = yup
 
   passwordConfirmation: yup.string()
     .required('password must be confirmed')
-    .oneOf([yup.ref('password')], 'passowords must match'),
+    .oneOf([yup.ref('password')], 'passwords must match'),
 
   first_name: yup.string()
     .required('first name is required')
