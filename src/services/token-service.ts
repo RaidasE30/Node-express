@@ -1,22 +1,19 @@
 import jwt from 'jsonwebtoken';
 import config from '../config';
 
-type Data = {
-  email: UserEntity['email'],
-};
+const createToken = (data: AuthData) => jwt.sign(data, config.jwtToken.secret, {
+  expiresIn: config.jwtToken.expiresIn,
+});
 
-type DecodedData = Data & { iat?: number };
-
-const createToken = (data: Data) => jwt.sign(data, config.secret.jwtTokenKey);
-
-const decodeToken = (token: string): DecodedData | null => {
+const decodeToken = (token: string): DecodedAuthData | null => {
   const data = jwt.decode(token);
 
   if (data === null) return null;
   if (typeof data === 'string') return null;
 
   return {
-    iat: data.iat,
+    iat: data.iat as number,
+    exp: data.exp as number,
     email: data.email,
   };
 };

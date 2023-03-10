@@ -1,10 +1,9 @@
 import { RequestHandler } from 'express';
-import { AuthSuccessResponse, RegistrationBody } from './types';
-import registrationDataValidationSchema from '../characters/validation-schemas/registration-data-validation-schema';
-import UserModel from '../models/user-model/model';
-
-import { createAuthSuccessResponse } from './helpers/create-auth-success-response';
-import ErrorService from '../services/error-service';
+import { AuthSuccessResponse, RegistrationBody } from '../types';
+import registrationDataValidationSchema from '../../characters/validation-schemas/registration-data-validation-schema';
+import UserModel from '../../models/user-model/model';
+import { createAuthSuccessResponse } from '../helpers/create-auth-success-response';
+import ErrorService from '../../services/error-service';
 
 export const register: RequestHandler<
 {},

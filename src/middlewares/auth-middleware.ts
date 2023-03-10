@@ -14,6 +14,9 @@ const authMiddleware: RequestHandler = (req, res, next) => {
     const authData = TokenService.decodeToken(token);
     if (authData === null) throw new AuthorizationError();
 
+    const timeStampNow = Math.round(new Date().valueOf() / 1000);
+    if (authData.exp < timeStampNow) throw new AuthorizationError();
+
     req.authData = authData;
     next();
   } catch (err) {

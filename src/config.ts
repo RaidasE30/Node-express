@@ -12,6 +12,7 @@ const {
   DB_PASSWORD,
   JWT_TOKEN_KEY,
   BCRYPT_ROUNDS,
+  JWT_TOKEN_EXPIRATION,
 } = process.env;
 
 if (
@@ -23,6 +24,7 @@ if (
     || !DB_PORT
     || !DB_PASSWORD
     || !JWT_TOKEN_KEY
+    || !JWT_TOKEN_EXPIRATION
     || !BCRYPT_ROUNDS
 ) {
   throw new Error("Please define constants in '.env' file");
@@ -41,9 +43,12 @@ const config = {
     port: Number(DB_PORT),
     multipleStatements: true,
   },
-  secret: {
-    jwtTokenKey: JWT_TOKEN_KEY,
-    bcryptRounds: Number(BCRYPT_ROUNDS),
+  jwtToken: {
+    secret: JWT_TOKEN_KEY,
+    expiresIn: JWT_TOKEN_EXPIRATION,
+  },
+  passwordEncryption: {
+    secret: Number(BCRYPT_ROUNDS),
   },
 };
 
